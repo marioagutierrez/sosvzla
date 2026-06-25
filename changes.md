@@ -1,5 +1,13 @@
 ## Cambios
 
+### Reinicio del Historial de Migraciones para PostgreSQL
+
+*   **Cambio:** Se eliminó el historial de migraciones de SQLite y se creó uno nuevo para PostgreSQL.
+*   **Propósito:** Corregir el error `P3019` en Vercel, el cual ocurría porque el historial de migraciones existente estaba configurado para SQLite, chocando con la nueva base de datos PostgreSQL de Neon.
+*   **Lógica Aplicada:**
+    1.  Se eliminó la carpeta `prisma/migrations` que contenía las migraciones de SQLite.
+    2.  Se ejecutó `npx prisma migrate dev --name init_postgres` para generar un archivo `migration.sql` compatible con PostgreSQL y registrar el nuevo historial en la base de datos de Neon.
+
 ### Migración a PostgreSQL y Prisma 5 (Estabilidad)
 
 *   **Cambio:** Se migró la base de datos de SQLite a PostgreSQL y se degradó Prisma de la versión 7 a la 5.

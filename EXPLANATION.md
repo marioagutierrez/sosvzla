@@ -25,6 +25,8 @@ Esto asegura que la aplicación se construya y se actualice en la nube de forma 
 
 *   **Sincronización de Base de Datos:** Para que el sistema funcione correctamente con tu base de datos de Neon, se ha utilizado la herramienta `prisma db push`. Esto sincroniza el diseño de las tablas (como el campo de teléfono `phone` que faltaba) directamente con tu base de datos en la nube, resolviendo errores de conexión y de estructura que impedían que la página cargara.
 
+*   **Solución al Error de Historial de Migraciones (P3019):** Al migrar de SQLite a PostgreSQL, las migraciones antiguas generaban un conflicto de compatibilidad en Vercel. Para resolver esto, eliminamos el historial antiguo e inicializamos uno completamente nuevo y compatible con PostgreSQL de Neon (`init_postgres`). Esto garantiza que Vercel pueda construir la aplicación sin problemas.
+
 ---
 
 ## Diseño Responsivo y Optimización para Teléfonos (Uso Móvil Sencillo)
