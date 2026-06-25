@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#FFCE00"/>
+  <rect width="900" height="400" fill="#00247D"/>
+  <rect width="900" height="200" fill="#CF142B"/>
+  <g fill="#fff">
+    <path d="M450 380a80 80 0 1 0 0-160 80 80 0 0 0 0 160zm0-20a60 60 0 1 1 0-120 60 60 0 0 1 0 120z"/>
+    <path id="star" d="M0-30l-8 24h26l-21-15 21-15H-8l8 24-8-24-8 24h26l-21-15 21-15H-8l8 24z"/>
+    <use href="#star" transform="translate(450 300) rotate(18)"/>
+    <use href="#star" transform="translate(450 300) rotate(36)"/>
+    <use href="#star" transform="translate(450 300) rotate(54)"/>
+    <use href="#star" transform="translate(450 300) rotate(72)"/>
+    <use href="#star" transform="translate(450 300) rotate(90)"/>
+    <use href="#star" transform="translate(450 300) rotate(108)"/>
+    <use href="#star" transform="translate(450 300) rotate(126)"/>
+    <use href="#star" transform="translate(450 300) rotate(144)"/>
+  </g>
+</svg>

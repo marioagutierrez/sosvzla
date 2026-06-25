@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unidos por Venezuela",
-  description: "Unidos por Venezuela is a platform that connects Venezuelans around the world, providing resources, support, and a sense of community for those affected by the crisis in Venezuela.",
+  title: "S.O.S. Terremoto Venezuela - Búsqueda de Desaparecidos",
+  description: "Plataforma pública y de emergencia para el reporte y búsqueda de personas desaparecidas tras el terremoto en Venezuela. Publica y consulta información en tiempo real, sin registros.",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

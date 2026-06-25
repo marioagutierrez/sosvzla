@@ -12,6 +12,20 @@ Cualquier persona afectada, **sin necesidad de registrarse ni iniciar sesión** 
 Una vez enviado, la persona aparece inmediatamente en el **Feed Principal**. Otras personas que visiten la página y tengan alguna pista, ubicación o información del afectado, podrán dejar un **Comentario Público** debajo de su reporte de manera inmediata.
 
 ---
+## Configuración para Despliegue en la Nube (Vercel)
+
+Para que esta herramienta pueda estar disponible en internet de forma global, se ha preparado para ser desplegada en **Vercel**, una plataforma de nube optimizada para aplicaciones Next.js.
+
+*   **Variables de Entorno:** La dirección de la base de datos ya no está escrita directamente en el código. Ahora, la aplicación la busca en una variable de entorno llamada `DATABASE_URL`. Esto permite que, cuando se despliegue en Vercel, se pueda configurar una base de datos de producción sin cambiar el código, haciendo el sistema más seguro y flexible.
+*   **Construcción Automatizada:** Se ha añadido un comando especial (`prisma generate && prisma migrate deploy`) que se ejecuta automáticamente cada vez que se despliega la aplicación en Vercel. Este comando se encarga de dos cosas:
+    1.  Prepara el cliente de Prisma para que la aplicación pueda hablar con la base de datos.
+    2.  Aplica cualquier cambio en la estructura de la base de datos (migraciones) de forma automática.
+
+Esto asegura que la aplicación se construya y se actualice en la nube de forma fiable con cada cambio en el código.
+
+*   **Sincronización de Base de Datos:** Para que el sistema funcione correctamente con tu base de datos de Neon, se ha utilizado la herramienta `prisma db push`. Esto sincroniza el diseño de las tablas (como el campo de teléfono `phone` que faltaba) directamente con tu base de datos en la nube, resolviendo errores de conexión y de estructura que impedían que la página cargara.
+
+---
 
 ## Diseño Responsivo y Optimización para Teléfonos (Uso Móvil Sencillo)
 
@@ -48,6 +62,6 @@ Para visualizar el feed, el sistema utiliza etiquetas de imagen estándar y cód
 ## Resumen de Tecnologías Aplicadas
 
 *   **Next.js (Versión 16):** Para una estructura web sumamente veloz y capaz de entregar el contenido pre-procesado a los navegadores.
-*   **Prisma (Versión 7) con PostgreSQL:** El motor de base de datos eficiente y moderno encargado de guardar los reportes y los comentarios en tiempo real.
+*   **Prisma (Versión 5):** El motor de base de datos eficiente y moderno encargado de guardar los reportes y los comentarios en tiempo real.
 *   **HTML5 Canvas:** La tecnología nativa del navegador usada para comprimir las fotos al vuelo y en el cliente.
 *   **Tailwind CSS:** Un conjunto de estilos sumamente ligero que permite crear un diseño con aspecto de alerta humanitaria profesional sin recargar el sitio.

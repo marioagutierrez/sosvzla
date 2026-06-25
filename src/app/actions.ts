@@ -6,12 +6,16 @@ import { revalidatePath } from 'next/cache';
 export async function createPost(formData: FormData) {
   const name = formData.get('name') as string;
   const description = formData.get('description') as string;
+  const phone = formData.get('phone') as string;
+  const location = formData.get('location') as string;
   const compressedImageBase64 = formData.get('compressedImageBase64') as string;
 
   await prisma.post.create({
     data: {
       name,
       description,
+      phone,
+      location,
       image: compressedImageBase64 || '',
     },
   });

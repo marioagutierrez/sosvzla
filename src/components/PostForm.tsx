@@ -104,16 +104,42 @@ export default function PostForm() {
           required
         />
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label htmlFor="phone" className="block text-sm font-extrabold text-slate-700 mb-1.5">
+            Teléfono de Contacto <span className="text-xs font-normal text-slate-500">(Opcional)</span>
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            className="mt-1 block w-full rounded-lg border-slate-300 p-3.5 border bg-white text-slate-900 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 text-sm"
+            placeholder="Ej. 0414-1234567"
+          />
+        </div>
+        <div>
+          <label htmlFor="location" className="block text-sm font-extrabold text-slate-700 mb-1.5">
+            Última Ubicación Conocida <span className="text-xs font-normal text-slate-500">(Opcional)</span>
+          </label>
+          <input
+            type="text"
+            name="location"
+            id="location"
+            className="mt-1 block w-full rounded-lg border-slate-300 p-3.5 border bg-white text-slate-900 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 text-sm"
+            placeholder="Ej. Sector La Candelaria, Caracas"
+          />
+        </div>
+      </div>
       <div className="mb-4">
         <label htmlFor="description" className="block text-sm font-extrabold text-slate-700 mb-1.5">
-          Última vez visto, ropa, detalles, contacto, etc.
+          Descripción Adicional (ropa, señas, etc.)
         </label>
         <textarea
           name="description"
           id="description"
           rows={4}
           className="mt-1 block w-full rounded-lg border-slate-300 p-3.5 border bg-white text-slate-900 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 text-sm leading-relaxed"
-          placeholder="Escribe detalles clave que ayuden a identificarle, lugar del suceso y teléfono de contacto..."
+          placeholder="Describe la ropa que llevaba, señas particulares o cualquier otro detalle que ayude a identificarle."
           required
         ></textarea>
       </div>
