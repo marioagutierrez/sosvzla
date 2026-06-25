@@ -1,5 +1,11 @@
 ## Cambios
 
+### Instalación de Tipos de PostgreSQL para TypeScript
+
+*   **Cambio:** Se añadió manualmente `@types/pg` a las dependencias de desarrollo (`devDependencies`) en `package.json`.
+*   **Propósito:** Corregir el fallo de compilación en Vercel, el cual ocurría porque TypeScript no podía encontrar los archivos de definición de tipos para el módulo `pg` (PostgreSQL) usado por Prisma Pg Adapter.
+*   **Lógica Aplicada:** Se editó el archivo `package.json` para registrar la dependencia de desarrollo y se ejecutó `npm install` para actualizar el archivo de bloqueo `package-lock.json`.
+
 ### Reinicio del Historial de Migraciones para PostgreSQL
 
 *   **Cambio:** Se eliminó el historial de migraciones de SQLite y se creó uno nuevo para PostgreSQL.

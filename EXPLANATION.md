@@ -21,11 +21,13 @@ Para que esta herramienta pueda estar disponible en internet de forma global, se
     1.  Prepara el cliente de Prisma para que la aplicación pueda hablar con la base de datos.
     2.  Aplica cualquier cambio en la estructura de la base de datos (migraciones) de forma automática.
 
-Esto asegura que la aplicación se construya y se actualice en la nube de forma fiable con cada cambio en el código.
+Esto asegura que la aplicación se construya y se update en la nube de forma fiable con cada cambio en el código.
 
 *   **Sincronización de Base de Datos:** Para que el sistema funcione correctamente con tu base de datos de Neon, se ha utilizado la herramienta `prisma db push`. Esto sincroniza el diseño de las tablas (como el campo de teléfono `phone` que faltaba) directamente con tu base de datos en la nube, resolviendo errores de conexión y de estructura que impedían que la página cargara.
 
 *   **Solución al Error de Historial de Migraciones (P3019):** Al migrar de SQLite a PostgreSQL, las migraciones antiguas generaban un conflicto de compatibilidad en Vercel. Para resolver esto, eliminamos el historial antiguo e inicializamos uno completamente nuevo y compatible con PostgreSQL de Neon (`init_postgres`). Esto garantiza que Vercel pueda construir la aplicación sin problemas.
+
+*   **Soporte Completo de Tipos para TypeScript:** Se integró el paquete `@types/pg` en las dependencias de desarrollo (`package.json`). Esto soluciona los errores de compilación estrictos en Vercel, permitiendo que el sistema de tipado reconozca adecuadamente los objetos y clases del controlador de PostgreSQL (`pg`) durante la compilación.
 
 ---
 
